@@ -82,7 +82,7 @@ function createUserCard(user) {
     main.innerHTML = cardHtml;
 
     lastSearch = document.getElementById('lastSearch');
-    addLastSearchToCard(user.name, user.html_url)
+    addLastSearchToCard(user.name, user.html_url, user.login)
 }
 
 
@@ -106,8 +106,9 @@ function addRepostToCard(repos) {
 
 
 // Añadir Vistos recientemente
-function addLastSearchToCard(user, userUrl) {
-    array.push({ nombre: user, url: userUrl });
+function addLastSearchToCard(user, userUrl, userLogin) {
+    array.push({ nombre: user, url: userUrl, userNameLogin: userLogin });
+
 
     // Filtrar para descartar users repetidos (result: array sin los repetidos)
     const hash = {};
@@ -119,16 +120,17 @@ function addLastSearchToCard(user, userUrl) {
 
     for (arr of array) {
         if (arr.nombre != undefined) {
-            let nombre = arr.nombre;
-            let url = arr.url;
+            let nameLogin = arr.userNameLogin;
+            // let nombre = arr.nombre;
+            // let url = arr.url;
             let arrEl = document.createElement('a');
-
-            arrEl.classList.add('repo');
+            arrEl.classList.add('repo', 'lastSearch');
 
             if (array.length <= 8) {
-                arrEl.href = url;
+                arrEl.onclick = () => getUser(nameLogin);
+                // arrEl.href = url;
                 arrEl.target = "_blank";
-                arrEl.innerText = nombre;
+                arrEl.innerText = nameLogin;
 
                 lastSearch.appendChild(arrEl);
             }
@@ -136,9 +138,10 @@ function addLastSearchToCard(user, userUrl) {
             if (array.length > 8) {
                 array.splice(0, 1);
 
-                arrEl.href = array[0].url;
+                arrEl.onclick = () => getUser(array[0].userNameLogin);
+                // arrEl.href = array[0].url;
                 arrEl.target = "_blank";
-                arrEl.innerText = array[0].nombre;
+                arrEl.innerText = array[0].userNameLogin;
 
                 lastSearch.appendChild(arrEl);
             }
@@ -152,7 +155,7 @@ function deleteSearch() {
     const svgClose = document.getElementById('svgClose');
     lastSearch.remove();
     svgClose.style.display = "none";
-
+    array = [];
 };
 
 

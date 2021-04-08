@@ -147,6 +147,10 @@ input:focus {
     padding: 0;
 }
 
+#lastSearch a {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 840px) {
     .card {
         max-width: 600px;
