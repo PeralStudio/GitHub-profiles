@@ -148,7 +148,12 @@ function addLastSearchToCard(user, userUrl) {
 
 
 // Función para eliminar usuarios vistos recientemente
-function deleteSearch() { lastSearch.remove() };
+function deleteSearch() {
+    const svgClose = document.getElementById('svgClose');
+    lastSearch.remove();
+    svgClose.style.display = "none";
+
+};
 
 
 // Listener del input para llamar a la funcion getUser()
