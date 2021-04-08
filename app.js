@@ -116,9 +116,7 @@ function addLastSearchToCard(user, userUrl) {
             arrEl.innerText = nombre;
 
             lastSearch.appendChild(arrEl);
-        };
-
-        if (array.length > 3) {
+        } else {
             array.splice(0, 1);
 
             arrEl.href = array[0].url;
