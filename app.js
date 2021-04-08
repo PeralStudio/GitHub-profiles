@@ -17,7 +17,7 @@ async function getUser(username) {
         main.innerHTML = '';
         notFound.innerText = 'Usuario no encontrado';
 
-        return
+        return;
     }
     notFound.innerText = '';
     createUserCard(data);
@@ -128,9 +128,8 @@ function addLastSearchToCard(user, userUrl) {
             lastSearch.appendChild(arrEl);
         };
     };
-
-
 }
+
 
 // Listener del input para llamar a la funcion getUser()
 form.addEventListener('submit', (e) => {
