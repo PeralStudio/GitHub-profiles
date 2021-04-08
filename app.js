@@ -3,8 +3,7 @@ const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 const notFound = document.getElementById('notFound');
-const array = [];
-let lastSearch;
+let array = [];
 
 
 // Traer información del User
@@ -39,6 +38,9 @@ function createUserCard(user) {
     const card = document.createElement('div');
     card.classList.add('card');
 
+    (user.bio === null) ? user.bio = "" : user.bio;
+    (user.name === null) ? user.name = user.login : user.name;
+
     let target = "_blank";
     if (user.blog === "") {
         user.blog = "javascript:void(0);";
@@ -68,6 +70,11 @@ function createUserCard(user) {
             </div>
         </div>
         <div class="ultimosUsados">
+            <div id="svgClose">
+                <svg onclick="deleteSearch()" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
             <h4>Usuarios vistos recientemente:</h4>
             <ul id="lastSearch"></ul>
         </div>
@@ -102,6 +109,13 @@ function addRepostToCard(repos) {
 function addLastSearchToCard(user, userUrl) {
 
     array.push({ nombre: user, url: userUrl });
+    // Filtrar para descartar users repetidos (result: array sin los repetidos)
+    const hash = {};
+    array = array.filter(function (current) {
+        let exists = !hash[current.nombre];
+        hash[current.nombre] = true;
+        return exists;
+    });
 
     for (arr of array) {
         let nombre = arr.nombre;
@@ -110,7 +124,7 @@ function addLastSearchToCard(user, userUrl) {
 
         arrEl.classList.add('repo');
 
-        if (array.length <= 3) {
+        if (array.length <= 8) {
             arrEl.href = url;
             arrEl.target = "_blank";
             arrEl.innerText = nombre;
@@ -127,6 +141,10 @@ function addLastSearchToCard(user, userUrl) {
         };
     };
 }
+
+
+// Función para eliminar usuarios vistos recientemente
+function deleteSearch() { lastSearch.remove() };
 
 
 // Listener del input para llamar a la funcion getUser()
