@@ -110,7 +110,7 @@ function addLastSearchToCard(user, userUrl) {
 
         arrEl.classList.add('repo');
 
-        if (array.length <= 3) {
+        if (array.length <= 6) {
             arrEl.href = url;
             arrEl.target = "_blank";
             arrEl.innerText = nombre;

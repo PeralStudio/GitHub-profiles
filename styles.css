@@ -67,10 +67,13 @@ input:focus {
 .user-info a {
     color: #eee;
     text-decoration: none;
+    background-color: #2e2a68;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
 }
 
 .user-info a:hover {
-    color: rgb(185, 179, 179);
+    background-color: #1f1c42;
 }
 
 .user-info h2 {
@@ -129,6 +132,7 @@ input:focus {
 }
 
 .ultimosUsados h4 {
+    color: #eee;
     text-align: center;
 }
 
@@ -151,6 +155,10 @@ input:focus {
         color: wheat;
         font-size: 3rem;
     }
+
+    #lastSearch {
+        min-width: 570px;
+    }
 }
 
 @media only screen and (max-width: 656px) {
@@ -168,6 +176,10 @@ input:focus {
         font-size: 0.5rem;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
+    }
+
+    #lastSearch {
+        min-width: 470px;
     }
 }
 
@@ -204,5 +216,13 @@ input:focus {
     #notFound {
         color: wheat;
         font-size: 1.5rem;
+    }
+
+    .ultimosUsados {
+        max-width: 370px;
+    }
+
+    #lastSearch {
+        min-width: 310px;
     }
 }
