@@ -107,8 +107,8 @@ function addRepostToCard(repos) {
 
 // Añadir Vistos recientemente
 function addLastSearchToCard(user, userUrl) {
-
     array.push({ nombre: user, url: userUrl });
+
     // Filtrar para descartar users repetidos (result: array sin los repetidos)
     const hash = {};
     array = array.filter(function (current) {
@@ -118,29 +118,33 @@ function addLastSearchToCard(user, userUrl) {
     });
 
     for (arr of array) {
-        let nombre = arr.nombre;
-        let url = arr.url;
-        let arrEl = document.createElement('a');
+        if (arr.nombre != undefined) {
+            let nombre = arr.nombre;
+            let url = arr.url;
+            let arrEl = document.createElement('a');
 
-        arrEl.classList.add('repo');
+            arrEl.classList.add('repo');
 
-        if (array.length <= 8) {
-            arrEl.href = url;
-            arrEl.target = "_blank";
-            arrEl.innerText = nombre;
+            if (array.length <= 8) {
+                arrEl.href = url;
+                arrEl.target = "_blank";
+                arrEl.innerText = nombre;
 
-            lastSearch.appendChild(arrEl);
-        } else {
-            array.splice(0, 1);
+                lastSearch.appendChild(arrEl);
+            }
 
-            arrEl.href = array[0].url;
-            arrEl.target = "_blank";
-            arrEl.innerText = array[0].nombre;
+            if (array.length > 8) {
+                array.splice(0, 1);
 
-            lastSearch.appendChild(arrEl);
-        };
-    };
-}
+                arrEl.href = array[0].url;
+                arrEl.target = "_blank";
+                arrEl.innerText = array[0].nombre;
+
+                lastSearch.appendChild(arrEl);
+            }
+        }
+    }
+};
 
 
 // Función para eliminar usuarios vistos recientemente
