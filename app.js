@@ -130,8 +130,6 @@ function addLastSearchToCard(user, userUrl, userLogin) {
 
             if (array.length <= 8) {
                 aLastSearch.onclick = (e) => {
-                    var eTargetId = e.target;
-                    console.log(eTargetId);
                     if (e.target.innerHTML == nameTitulo) return;
                     getUser(nameLogin)
                 };
