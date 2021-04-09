@@ -53,7 +53,7 @@ function createUserCard(user) {
                 <img class="avatar" src="${user.avatar_url}" alt="${user.name}" />
             </div>
             <div class="user-info">
-                <h2><a href="${user.html_url}" target="_blank">${user.name}</a></h2>
+                <h2><a id="${user.login}" href="${user.html_url}" target="_blank">${user.name}</a></h2>
                 <p>${user.bio}</p>
 
                 <ul class="info">
@@ -119,31 +119,41 @@ function addLastSearchToCard(user, userUrl, userLogin) {
     });
 
     for (arr of array) {
+        const nameTitulo = document.querySelector('.user-info a').id;
+        let nameLogin = arr.userNameLogin;
         if (arr.nombre != undefined) {
-            let nameLogin = arr.userNameLogin;
             // let nombre = arr.nombre;
             // let url = arr.url;
-            let arrEl = document.createElement('a');
-            arrEl.classList.add('repo', 'lastSearch');
+            let aLastSearch = document.createElement('a');
+            aLastSearch.classList.add('repo');
+            aLastSearch.id = `${arr.userNameLogin}`;
 
             if (array.length <= 8) {
-                arrEl.onclick = () => getUser(nameLogin);
-                // arrEl.href = url;
-                arrEl.target = "_blank";
-                arrEl.innerText = nameLogin;
+                aLastSearch.onclick = (e) => {
+                    var eTargetId = e.target;
+                    console.log(eTargetId);
+                    if (e.target.innerHTML == nameTitulo) return;
+                    getUser(nameLogin)
+                };
+                // aLastSearch.href = url;
+                aLastSearch.target = "_blank";
+                aLastSearch.innerText = nameLogin;
 
-                lastSearch.appendChild(arrEl);
+                lastSearch.appendChild(aLastSearch);
             }
 
             if (array.length > 8) {
                 array.splice(0, 1);
 
-                arrEl.onclick = () => getUser(array[0].userNameLogin);
-                // arrEl.href = array[0].url;
-                arrEl.target = "_blank";
-                arrEl.innerText = array[0].userNameLogin;
+                aLastSearch.onclick = (e) => {
+                    if (e.target.innerHTML === nameTitulo) return;
+                    getUser(array[0].userNameLogin)
+                };
+                // aLastSearch.href = array[0].url;
+                aLastSearch.target = "_blank";
+                aLastSearch.innerText = array[0].userNameLogin;
 
-                lastSearch.appendChild(arrEl);
+                lastSearch.appendChild(aLastSearch);
             }
         }
     }
