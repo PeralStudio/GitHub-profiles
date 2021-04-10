@@ -1,246 +1,251 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
-
 * {
-    box-sizing: border-box;
-    user-select: none;
+  box-sizing: border-box;
+  user-select: none;
 }
 
 body {
-    background-color: #2e2a68;
-    background-image: linear-gradient(316deg, #2e2a68 0%, #2e2a68 74%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    min-height: 100vh;
+  background-color: #2e2a68;
+  background-image: linear-gradient(316deg, #2e2a68 0%, #2e2a68 74%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  min-height: 100vh;
 }
 
 input {
-    background-color: #6c33a3;
-    color: white;
-    border-radius: 10px;
-    padding: 0.4rem;
-    margin-bottom: 3rem;
-    border: none;
-    box-shadow: 0 5px 1px #6c33a3, 0 5px 20px #15132e;
-    font-family: inherit;
-    font-size: 1rem;
+  background-color: #6c33a3;
+  color: white;
+  border-radius: 10px;
+  padding: 0.4rem;
+  margin-bottom: 3rem;
+  border: none;
+  box-shadow: 0 5px 1px #6c33a3, 0 5px 20px #15132e;
+  font-family: inherit;
+  font-size: 1rem;
 }
 
 input::placeholder {
-    color: #bbb;
+  color: #bbb;
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 #notFound {
-    color: wheat;
-    font-size: 4rem;
+  color: wheat;
+  font-size: 4rem;
 }
 
 .card {
-    display: flex;
-    background-color: #6c33a3;
-    background-image: linear-gradient(316deg, #592a85 0%, #3f1661 74%);
-    padding: 2rem;
-    max-width: 800px;
-    border-radius: 20px;
-    box-shadow: 0 5px 10px #462168, 0 10px 20px #15132e;
+  display: flex;
+  background-color: #6c33a3;
+  background-image: linear-gradient(316deg, #592a85 0%, #3f1661 74%);
+  padding: 2rem;
+  max-width: 800px;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px #462168, 0 10px 20px #15132e;
 }
 
 .avatar {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    border: 5px solid #2e2a68;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: 5px solid #2e2a68;
 }
 
 .user-info {
-    color: #eee;
-    margin-left: 2rem;
-    align-self: flex-end;
+  color: #eee;
+  margin-left: 2rem;
+  align-self: flex-end;
 }
 
 .user-info a {
-    color: #eee;
-    text-decoration: none;
-    background-color: #2e2a68;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
+  color: #eee;
+  text-decoration: none;
+  background-color: #2e2a68;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
 }
 
 .user-info a:hover {
-    background-color: #1f1c42;
+  background-color: #1f1c42;
 }
 
 .user-info h2 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .user-info ul {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    padding: 0;
-    max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
 }
 
 .user-info ul li {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .user-info ul li strong {
-    font-size: 0.9rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .repo {
-    background-color: #2e2a68;
-    display: inline-block;
-    color: white;
-    font-size: 0.7rem;
-    padding: 0.25rem 0.5rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-    border-radius: 4px;
-    text-decoration: none;
+  background-color: #2e2a68;
+  display: inline-block;
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  text-decoration: none;
 }
 
 .repo:hover {
-    background-color: #1f1c42;
+  background-color: #1f1c42;
 }
 
 .div-repos ul {
-    display: inline;
+  display: inline;
 }
 
 #svgClose {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.divSearch img {
+  cursor: pointer;
+  justify-self: center;
+  vertical-align: middle;
 }
 
 .ultimosUsados {
-    display: table;
-    background-color: #6c33a3;
-    background-image: linear-gradient(316deg, #592a85 0%, #3f1661 74%);
-    padding: 1rem;
-    margin: auto;
-    margin-top: 3rem;
-    max-width: 400px;
-    border-radius: 20px;
-    box-shadow: 0 5px 10px #462168, 0 10px 20px #15132e;
+  display: table;
+  background-color: #6c33a3;
+  background-image: linear-gradient(316deg, #592a85 0%, #3f1661 74%);
+  padding: 1rem;
+  margin: auto;
+  margin-top: 3rem;
+  min-width: 800px;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px #462168, 0 10px 20px #15132e;
 }
 
 .ultimosUsados h4 {
-    color: #eee;
-    text-align: center;
+  color: #eee;
+  text-align: center;
 }
 
 #lastSearch {
-    text-align: center;
-    padding: 0;
+  text-align: center;
+  padding: 0;
 }
 
 #lastSearch a {
-    cursor: pointer;
+  cursor: pointer;
+  width: 50%;
+  justify-self: center;
+  margin-bottom: 30px;
+  margin-left: 10px;
 }
 
 @media only screen and (max-width: 840px) {
-    .card {
-        max-width: 600px;
-    }
-
-    .avatar {
-        height: 150px;
-        width: 150px;
-    }
-
-    #notFound {
-        color: wheat;
-        font-size: 3rem;
-    }
-
-    #lastSearch {
-        min-width: 570px;
-    }
+  .card {
+    max-width: 600px;
+  }
+  .avatar {
+    height: 150px;
+    width: 150px;
+  }
+  #notFound {
+    color: wheat;
+    font-size: 3rem;
+  }
+  .ultimosUsados {
+    min-width: 400px;
+  }
+  .divSearch {
+    display: block;
+    padding: 10px;
+  }
+  #lastSearch {
+    min-width: 570px;
+  }
+  #lastSearch a {
+    margin-bottom: 0;
+  }
 }
 
 @media only screen and (max-width: 656px) {
-    .card {
-        display: table;
-        max-width: 500px;
-    }
-
-    .img-container {
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    .avatar {
-        height: 100px;
-        width: 100px;
-    }
-
-    .user-info ul li strong {
-        font-size: 0.8rem;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-    }
-
-    #lastSearch {
-        min-width: 470px;
-    }
+  .card {
+    display: table;
+    max-width: 500px;
+  }
+  .img-container {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .avatar {
+    height: 100px;
+    width: 100px;
+  }
+  .user-info ul li strong {
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  #lastSearch {
+    min-width: 470px;
+  }
 }
 
 @media only screen and (max-width: 576px) {
-    .card {
-        display: table;
-        min-width: 350px;
-        padding: 1rem;
-    }
-
-    .img-container {
-        text-align: center;
-        margin-bottom: 0.5rem;
-    }
-
-    .avatar {
-        height: 100px;
-        width: 100px;
-        margin-bottom: 1rem;
-    }
-
-    .user-info ul li {
-        font-size: 0.7rem;
-    }
-
-    .user-info ul li strong {
-        font-size: 0.7rem;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-    }
-
-    input {
-        margin-top: 2rem;
-    }
-
-    #notFound {
-        color: wheat;
-        font-size: 1.5rem;
-    }
-
-    .ultimosUsados {
-        max-width: 370px;
-    }
-
-    #lastSearch {
-        min-width: 310px;
-    }
+  .card {
+    display: table;
+    max-width: 350px;
+    padding: 1rem;
+    margin: auto;
+  }
+  .img-container {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .avatar {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 1rem;
+  }
+  .user-info ul li {
+    font-size: 0.7rem;
+  }
+  .user-info ul li strong {
+    font-size: 0.7rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  input {
+    margin-top: 2rem;
+  }
+  #notFound {
+    color: wheat;
+    font-size: 1.5rem;
+  }
+  .ultimosUsados {
+    min-width: 360px;
+  }
+  #lastSearch {
+    min-width: 310px;
+  }
 }

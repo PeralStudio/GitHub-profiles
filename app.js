@@ -82,7 +82,7 @@ function createUserCard(user) {
     main.innerHTML = cardHtml;
 
     lastSearch = document.getElementById('lastSearch');
-    addLastSearchToCard(user.name, user.html_url, user.login)
+    addLastSearchToCard(user.name, user.html_url, user.login, user.avatar_url)
 }
 
 
@@ -106,8 +106,8 @@ function addRepostToCard(repos) {
 
 
 // Añadir Vistos recientemente
-function addLastSearchToCard(user, userUrl, userLogin) {
-    array.push({ nombre: user, url: userUrl, userNameLogin: userLogin });
+function addLastSearchToCard(user, userUrl, userLogin, userAvatar) {
+    array.push({ nombre: user, url: userUrl, userNameLogin: userLogin, avatar: userAvatar });
 
 
     // Filtrar para descartar users repetidos (result: array sin los repetidos)
@@ -124,7 +124,11 @@ function addLastSearchToCard(user, userUrl, userLogin) {
         if (arr.nombre != undefined) {
             // let nombre = arr.nombre;
             // let url = arr.url;
+            let divSearch = document.createElement('div');
             let aLastSearch = document.createElement('a');
+            let imgSearch = document.createElement('img');
+
+            divSearch.classList.add('divSearch');
             aLastSearch.classList.add('repo');
             aLastSearch.id = `${arr.userNameLogin}`;
 
@@ -133,11 +137,23 @@ function addLastSearchToCard(user, userUrl, userLogin) {
                     if (e.target.innerHTML == nameTitulo) return;
                     getUser(nameLogin)
                 };
-                // aLastSearch.href = url;
+
+                imgSearch.onclick = (e) => {
+                    if (e.target.alt === nameTitulo) return;
+                    getUser(nameLogin)
+                };
+
+                imgSearch.width = 50;
+                imgSearch.height = 50;
+                imgSearch.alt = nameLogin;
+                imgSearch.style.borderRadius = "50%";
+                imgSearch.src = arr.avatar;
                 aLastSearch.target = "_blank";
                 aLastSearch.innerText = nameLogin;
 
-                lastSearch.appendChild(aLastSearch);
+                lastSearch.appendChild(divSearch)
+                divSearch.appendChild(imgSearch);
+                divSearch.appendChild(aLastSearch);
             }
 
             if (array.length > 8) {
@@ -145,6 +161,12 @@ function addLastSearchToCard(user, userUrl, userLogin) {
 
                 aLastSearch.onclick = (e) => {
                     if (e.target.innerHTML === nameTitulo) return;
+                    getUser(array[0].userNameLogin)
+                };
+
+                imgSearch.onclick = (e) => {
+                    console.log('hi');
+                    if (e.target.alt === nameTitulo) return;
                     getUser(array[0].userNameLogin)
                 };
                 // aLastSearch.href = array[0].url;
